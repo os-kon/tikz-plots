@@ -1,0 +1,79 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pagestyle{empty}
+\pgfplotsset{contour/handler/.style={/tikz/smooth}}
+
+\usepackage[standard-baselineskips]{cmbright}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin = 0,
+            xmax = 1.75,
+            ymin = 0,
+            ymax = 1.75,
+            zmin = -0.5,
+            zmax = 1.1,
+            xtick = {0.035, 0.315, 0.595, 0.875, 1.155, 1.435, 1.715},
+            xticklabels = {0.035, 0.315, 0.595, 0.875, 1.155, 1.435, 1.715},
+            ytick = {0.035, 0.315, 0.595, 0.875, 1.155, 1.435, 1.715},
+            yticklabels = {0.035, 0.315, 0.595, 0.875, 1.155, 1.435, 1.715},
+            ztick = {-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1},
+            xlabel = {\Large $x$},
+            ylabel = {\Large $y$},
+            xticklabel style = {font=\Large, rotate=45},
+            yticklabel style = {font=\Large},
+            zlabel = {\Large $\epsilon_{xx}$ \normalsize[-]},
+            grid = both,
+            width=0.85\textwidth,
+            height=0.85\textwidth,
+            view={0}{90},
+            legend style={nodes={scale=1.25}},
+            legend cell align={left}
+            ]
+
+        \addplot3[contour gnuplot={
+            levels={0.05, 0.12, 0.235, 0.35, 0.4, 0.45, 0.5, 
+            0.55, 0.60, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.00}, 
+            output point meta=rawz, labels=false},
+        thick, z filter/.code=\def\pgfmathresult{-0.5}, colormap/viridis, forget plot] file {Curvature_x_strain_x_crack_4_030_7x7_x.dat};
+
+        % Specify crack-tip-1 coordinates
+		\newcommand{\tipax}{0.4930}
+		\newcommand{\tipay}{0.6311}
+		
+		% Specify crack-tip-2 coordinates
+		\newcommand{\tipbx}{0.9870}
+		\newcommand{\tipby}{0.8089}
+		
+		% Draw crack
+			\addplot[color=black, line width=1.5pt,mark=square*,
+                mark options={fill = black, scale=0.5}] coordinates {(\tipax, \tipay) (\tipbx, \tipby)};
+		
+		% Plot initial point
+		
+		\newcommand{\pointx}{0.7227}
+		\newcommand{\pointy}{0.7780}
+		
+		\addplot[color=green, line width=1.5pt, only marks,mark=triangle*,
+                mark options={fill = green, scale=1}] coordinates { (\pointx, \pointy)};
+		
+		% Plot detected cracks
+		
+		\foreach \num in {1,2,3,4,5,6,7,8,9,10} {
+		    \addplot[color=red, line width=0.5pt,dashed,mark=*,
+                mark options={scale=0.5}] table [x index=0,y index=1] {detected_cracks\num.dat};
+		};
+		
+		
+		\addlegendentry{Actual crack}
+		\addlegendentry{Initial localization}
+		\addlegendentry{Detected crack}
+
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
