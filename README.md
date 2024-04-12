@@ -1,6 +1,6 @@
 # Tikz-plots: A set of plot examples using tikz
 
-Tikz-plots is repository for 
+Tikz-plots is a repository for the collection of example plots using Tikz, with the aim of serving as a library that can accelerate the creation of plots for scientific publications and presentations.
 
 ## Contents
 
