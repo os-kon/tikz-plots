@@ -11,4 +11,4 @@ The examples are based on various LaTeX packages that should be installed. Some 
 
 Here is the list of required packages, as specified on CTAN:
 
-# Contributors
+## Contributors
