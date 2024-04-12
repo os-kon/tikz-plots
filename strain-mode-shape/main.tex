@@ -1,0 +1,44 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pagestyle{empty}
+
+\usepackage[standard-baselineskips]{cmbright}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin = 0,
+            xmax = 1.75,
+            ymin = 0,
+            ymax = 1.75,
+            zmin = -1,
+            zmax = 1,
+            xtick = {0.175, 0.525, 0.875, 1.225, 1.575},
+            xticklabels = {0.175, 0.525, 0.875, 1.225, 1.575},
+            ytick = {0.175, 0.525, 0.875, 1.225, 1.575},
+            yticklabels = {0.175, 0.525, 0.875, 1.225, 1.575},
+            ztick = {-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1},
+            xlabel = {\large $x$},
+            ylabel = {\large $y$},
+            zlabel = {\Large $\epsilon_{yy}$ \normalsize[-]},
+            grid = both,
+            width=1\textwidth,
+            height=1\textwidth,
+            view={45}{35}]
+
+       \addplot3[contour gnuplot={number=16, output point meta=rawz, labels=false},
+       thick, z filter/.code=\def\pgfmathresult{-1}, colormap/viridis] file {Strain_y_mode_x.dat};
+
+       \addplot3[mesh, patch type=line, x filter/.code=\def\pgfmathresult{0}, colormap/viridis] file {Strain_y_mode_x.dat};
+
+       \addplot3[mesh, patch type=line, y filter/.code=\def\pgfmathresult{1.75}, colormap/viridis] file {Strain_y_mode_y.dat};
+       
+       \addplot3[surf, shader=faceted interp, opacity=0.85,fill opacity=0.85, colormap/viridis] file {Strain_y_mode_y.dat};
+       
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
