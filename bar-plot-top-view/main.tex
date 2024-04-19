@@ -1,0 +1,591 @@
+\documentclass{standalone}
+
+\usepackage[english]{babel}
+\usepackage[cmyk]{xcolor}
+\usepackage{pgfplots}
+\usepackage{timesmt}
+\usepackage{pgffor}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.8}
+
+
+\newcommand{\di}{0.4}
+
+% Coordinates
+
+\newcommand{\ya}{6}
+\newcommand{\yb}{5}
+\newcommand{\yc}{4}
+\newcommand{\yd}{3}
+\newcommand{\ye}{2}
+\newcommand{\yf}{1}
+
+\newcommand{\xa}{1}
+\newcommand{\xb}{2}
+\newcommand{\xc}{3}
+\newcommand{\xd}{4}
+\newcommand{\xe}{5}
+\newcommand{\xf}{6.5}
+\newcommand{\xg}{7.5}
+\newcommand{\xh}{8.5}
+\newcommand{\xI}{9.5}
+\newcommand{\xj}{10.5}
+\newcommand{\xk}{11.5}
+\newcommand{\xl}{12.5}
+\newcommand{\xm}{13.5}
+\newcommand{\xn}{14.5}
+\newcommand{\xo}{15.5}
+\newcommand{\xp}{16.5}
+\newcommand{\xq}{17.5}
+\newcommand{\xr}{18.5}
+\newcommand{\xs}{19.5}
+\newcommand{\xt}{20.5}
+
+% 1st row from above
+\newcommand{\yaxa}{27.96}
+\newcommand{\yaxb}{2.78}
+\newcommand{\yaxc}{82.20}
+\newcommand{\yaxd}{57.60}
+\newcommand{\yaxe}{35.25}
+
+\newcommand{\yaxf}{5.075}
+\newcommand{\yaxg}{25.725}
+\newcommand{\yaxh}{12.675}
+\newcommand{\yaxi}{16.15}
+\newcommand{\yaxj}{28.15}
+\newcommand{\yaxk}{2.5}
+\newcommand{\yaxl}{23.35}
+\newcommand{\yaxm}{16.725}
+\newcommand{\yaxn}{9.675}
+\newcommand{\yaxo}{15.2}
+\newcommand{\yaxp}{19.175}
+\newcommand{\yaxq}{15.925}
+\newcommand{\yaxr}{8.425}
+\newcommand{\yaxs}{28.25}
+\newcommand{\yaxt}{16.125}
+
+% 2nd row from above
+\newcommand{\ybxa}{91.06}
+\newcommand{\ybxb}{18.39}
+\newcommand{\ybxc}{61.07}
+\newcommand{\ybxd}{100}
+\newcommand{\ybxe}{38.95}
+\newcommand{\ybxf}{27.56}
+\newcommand{\ybxg}{66.62}
+\newcommand{\ybxh}{50.52}
+\newcommand{\ybxi}{51.56}
+\newcommand{\ybxj}{36.48}
+\newcommand{\ybxk}{34.2}
+\newcommand{\ybxl}{68.8}
+\newcommand{\ybxm}{26.84}
+\newcommand{\ybxn}{3}
+\newcommand{\ybxo}{51.58}
+\newcommand{\ybxp}{62.02}
+\newcommand{\ybxq}{57.02}
+\newcommand{\ybxr}{53.28}
+\newcommand{\ybxs}{60.6}
+\newcommand{\ybxt}{57.56}
+
+% 3rd row from above
+\newcommand{\ycxa}{8.38}
+\newcommand{\ycxb}{51.66}
+\newcommand{\ycxc}{8.60}
+\newcommand{\ycxd}{37.33}
+\newcommand{\ycxe}{72.83}
+\newcommand{\ycxf}{4.28}
+\newcommand{\ycxg}{5.4}
+\newcommand{\ycxh}{27.2}
+\newcommand{\ycxi}{4.8}
+\newcommand{\ycxj}{27.12}
+\newcommand{\ycxk}{4.32}
+\newcommand{\ycxl}{1.24}
+\newcommand{\ycxm}{39.48}
+\newcommand{\ycxn}{12.88}
+\newcommand{\ycxo}{4.28}
+\newcommand{\ycxp}{2.72}
+\newcommand{\ycxq}{12.64}
+\newcommand{\ycxr}{1.16}
+\newcommand{\ycxs}{13.32}
+\newcommand{\ycxt}{11.28}
+
+% 4th row from above
+\newcommand{\ydxa}{24.28}
+\newcommand{\ydxb}{99.85}
+\newcommand{\ydxc}{1.31}
+\newcommand{\ydxd}{1.36}
+\newcommand{\ydxe}{6}
+\newcommand{\ydxf}{30.475}
+\newcommand{\ydxg}{3.8}
+\newcommand{\ydxh}{46.5}
+\newcommand{\ydxi}{3.15}
+\newcommand{\ydxj}{40}
+\newcommand{\ydxk}{18.475}
+\newcommand{\ydxl}{21.775}
+\newcommand{\ydxm}{69.225}
+\newcommand{\ydxn}{13.675}
+\newcommand{\ydxo}{19.4}
+\newcommand{\ydxp}{7.8}
+\newcommand{\ydxq}{25.025}
+\newcommand{\ydxr}{2.75}
+\newcommand{\ydxs}{29.4}
+\newcommand{\ydxt}{24.05}
+
+% 5th row from above
+\newcommand{\yexa}{1}
+\newcommand{\yexb}{4.85}
+\newcommand{\yexc}{2.45}
+\newcommand{\yexd}{2.41}
+\newcommand{\yexe}{4.41}
+\newcommand{\yexf}{11.025}
+\newcommand{\yexg}{4.725}
+\newcommand{\yexh}{5.22}
+\newcommand{\yexi}{6.525}
+\newcommand{\yexj}{2.925}
+\newcommand{\yexk}{11.115}
+\newcommand{\yexl}{1.35}
+\newcommand{\yexm}{1.17}
+\newcommand{\yexn}{10.125}
+\newcommand{\yexo}{5.625}
+\newcommand{\yexp}{2.43}
+\newcommand{\yexq}{1.26}
+\newcommand{\yexr}{1.44}
+\newcommand{\yexs}{4.995}
+\newcommand{\yext}{0.9}
+
+% 6th row from above
+\newcommand{\yfxa}{1.64}
+\newcommand{\yfxb}{12.32}
+\newcommand{\yfxc}{4.66}
+\newcommand{\yfxd}{8.24}
+\newcommand{\yfxe}{37.68}
+\newcommand{\yfxf}{56.88}
+\newcommand{\yfxg}{1.77}
+\newcommand{\yfxh}{7.05}
+\newcommand{\yfxi}{5.43}
+\newcommand{\yfxj}{3.24}
+\newcommand{\yfxk}{17.28}
+\newcommand{\yfxl}{34.08}
+\newcommand{\yfxm}{1.95}
+\newcommand{\yfxn}{23.7}
+\newcommand{\yfxo}{19.95}
+\newcommand{\yfxp}{0.6}
+\newcommand{\yfxq}{1.2}
+\newcommand{\yfxr}{2.64}
+\newcommand{\yfxs}{9.45}
+\newcommand{\yfxt}{0.93}
+
+\begin{document}
+
+
+\begin{tikzpicture}
+	\begin{axis}[
+		xmin=0,
+		xmax=\xt+1,
+		width=1.2\textwidth,
+		height=0.375\textwidth,
+		xticklabel style = {font=\scriptsize},
+		yticklabel style = {font=\scriptsize},
+		xtick = {\xa, \xb, \xc, \xd, \xe, \xf, \xg, \xh, \xI, \xj, \xk, \xl, \xm, \xn, \xo, \xp, \xq, \xr, \xs, \xt},
+		ytick = {1, 2, 3, 4, 5, 6},
+		xticklabels = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+		yticklabels = {3378z, 3559z, 3378y, 3559y, 3378x, 3559x},
+		xlabel={\scriptsize{\textbf{Component}}},
+		ylabel={\scriptsize{\textbf{Sensor location}}},
+		unit vector ratio*=1 1 1,
+		colorbar,
+		colormap={}{gray(0cm)=(1); gray(1cm)=(0);},
+		point meta max =1,
+		point meta min=0,
+		colorbar style={
+		        %ylabel=Z-value,
+		        font=\scriptsize,
+		        width=0.3cm,
+		        % tick style = {draw opacity=0},
+		        ytick={0, 0.25, 0.5, 0.75, 1},
+		        yticklabels = {0, 0.25, 0.5, 0.75, 1},
+		        yticklabel style={
+				text width=2.5em,
+				align=left,
+				/pgf/number format/.cd,
+				fixed,
+				fixed zerofill
+				}}
+		]
+		
+		% 1st row starting from above
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxa]
+		coordinates {(\xa+\di, \ya+\di) (\xa-\di, \ya+\di) (\xa-\di, \ya-\di) (\xa+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxb]
+		coordinates {(\xb+\di, \ya+\di) (\xb-\di, \ya+\di) (\xb-\di, \ya-\di) (\xb+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxc]
+		coordinates {(\xc+\di, \ya+\di) (\xc-\di, \ya+\di) (\xc-\di, \ya-\di) (\xc+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxd]
+		coordinates {(\xd+\di, \ya+\di) (\xd-\di, \ya+\di) (\xd-\di, \ya-\di) (\xd+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxe]
+		coordinates {(\xe+\di, \ya+\di) (\xe-\di, \ya+\di) (\xe-\di, \ya-\di) (\xe+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxf]
+		coordinates {(\xf+\di, \ya+\di) (\xf-\di, \ya+\di) (\xf-\di, \ya-\di) (\xf+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxg]
+		coordinates {(\xg+\di, \ya+\di) (\xg-\di, \ya+\di) (\xg-\di, \ya-\di) (\xg+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxh]
+		coordinates {(\xh+\di, \ya+\di) (\xh-\di, \ya+\di) (\xh-\di, \ya-\di) (\xh+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxi]
+		coordinates {(\xI+\di, \ya+\di) (\xI-\di, \ya+\di) (\xI-\di, \ya-\di) (\xI+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxj]
+		coordinates {(\xj+\di, \ya+\di) (\xj-\di, \ya+\di) (\xj-\di, \ya-\di) (\xj+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxk]
+		coordinates {(\xk+\di, \ya+\di) (\xk-\di, \ya+\di) (\xk-\di, \ya-\di) (\xk+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxl]
+		coordinates {(\xl+\di, \ya+\di) (\xl-\di, \ya+\di) (\xl-\di, \ya-\di) (\xl+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxm]
+		coordinates {(\xm+\di, \ya+\di) (\xm-\di, \ya+\di) (\xm-\di, \ya-\di) (\xm+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxn]
+		coordinates {(\xn+\di, \ya+\di) (\xn-\di, \ya+\di) (\xn-\di, \ya-\di) (\xn+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxo]
+		coordinates {(\xo+\di, \ya+\di) (\xo-\di, \ya+\di) (\xo-\di, \ya-\di) (\xo+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxp]
+		coordinates {(\xp+\di, \ya+\di) (\xp-\di, \ya+\di) (\xp-\di, \ya-\di) (\xp+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxq]
+		coordinates {(\xq+\di, \ya+\di) (\xq-\di, \ya+\di) (\xq-\di, \ya-\di) (\xq+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxr]
+		coordinates {(\xr+\di, \ya+\di) (\xr-\di, \ya+\di) (\xr-\di, \ya-\di) (\xr+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxs]
+		coordinates {(\xs+\di, \ya+\di) (\xs-\di, \ya+\di) (\xs-\di, \ya-\di) (\xs+\di, \ya-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yaxt]
+		coordinates {(\xt+\di, \ya+\di) (\xt-\di, \ya+\di) (\xt-\di, \ya-\di) (\xt+\di, \ya-\di)};
+		
+		% 2nd row starting from above
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxa]
+		coordinates {(\xa+\di, \yb+\di) (\xa-\di, \yb+\di) (\xa-\di, \yb-\di) (\xa+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxb]
+		coordinates {(\xb+\di, \yb+\di) (\xb-\di, \yb+\di) (\xb-\di, \yb-\di) (\xb+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxc]
+		coordinates {(\xc+\di, \yb+\di) (\xc-\di, \yb+\di) (\xc-\di, \yb-\di) (\xc+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxd]
+		coordinates {(\xd+\di, \yb+\di) (\xd-\di, \yb+\di) (\xd-\di, \yb-\di) (\xd+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxe]
+		coordinates {(\xe+\di, \yb+\di) (\xe-\di, \yb+\di) (\xe-\di, \yb-\di) (\xe+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxf]
+		coordinates {(\xf+\di, \yb+\di) (\xf-\di, \yb+\di) (\xf-\di, \yb-\di) (\xf+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxg]
+		coordinates {(\xg+\di, \yb+\di) (\xg-\di, \yb+\di) (\xg-\di, \yb-\di) (\xg+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxh]
+		coordinates {(\xh+\di, \yb+\di) (\xh-\di, \yb+\di) (\xh-\di, \yb-\di) (\xh+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxi]
+		coordinates {(\xI+\di, \yb+\di) (\xI-\di, \yb+\di) (\xI-\di, \yb-\di) (\xI+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxj]
+		coordinates {(\xj+\di, \yb+\di) (\xj-\di, \yb+\di) (\xj-\di, \yb-\di) (\xj+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxk]
+		coordinates {(\xk+\di, \yb+\di) (\xk-\di, \yb+\di) (\xk-\di, \yb-\di) (\xk+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxl]
+		coordinates {(\xl+\di, \yb+\di) (\xl-\di, \yb+\di) (\xl-\di, \yb-\di) (\xl+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxm]
+		coordinates {(\xm+\di, \yb+\di) (\xm-\di, \yb+\di) (\xm-\di, \yb-\di) (\xm+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxn]
+		coordinates {(\xn+\di, \yb+\di) (\xn-\di, \yb+\di) (\xn-\di, \yb-\di) (\xn+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxo]
+		coordinates {(\xo+\di, \yb+\di) (\xo-\di, \yb+\di) (\xo-\di, \yb-\di) (\xo+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxp]
+		coordinates {(\xp+\di, \yb+\di) (\xp-\di, \yb+\di) (\xp-\di, \yb-\di) (\xp+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxq]
+		coordinates {(\xq+\di, \yb+\di) (\xq-\di, \yb+\di) (\xq-\di, \yb-\di) (\xq+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxr]
+		coordinates {(\xr+\di, \yb+\di) (\xr-\di, \yb+\di) (\xr-\di, \yb-\di) (\xr+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxs]
+		coordinates {(\xs+\di, \yb+\di) (\xs-\di, \yb+\di) (\xs-\di, \yb-\di) (\xs+\di, \yb-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ybxt]
+		coordinates {(\xt+\di, \yb+\di) (\xt-\di, \yb+\di) (\xt-\di, \yb-\di) (\xt+\di, \yb-\di)};
+		
+		% 3rd row starting from above
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxa]
+		coordinates {(\xa+\di, \yc+\di) (\xa-\di, \yc+\di) (\xa-\di, \yc-\di) (\xa+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxb]
+		coordinates {(\xb+\di, \yc+\di) (\xb-\di, \yc+\di) (\xb-\di, \yc-\di) (\xb+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxc]
+		coordinates {(\xc+\di, \yc+\di) (\xc-\di, \yc+\di) (\xc-\di, \yc-\di) (\xc+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxd]
+		coordinates {(\xd+\di, \yc+\di) (\xd-\di, \yc+\di) (\xd-\di, \yc-\di) (\xd+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxe]
+		coordinates {(\xe+\di, \yc+\di) (\xe-\di, \yc+\di) (\xe-\di, \yc-\di) (\xe+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxf]
+		coordinates {(\xf+\di, \yc+\di) (\xf-\di, \yc+\di) (\xf-\di, \yc-\di) (\xf+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxg]
+		coordinates {(\xg+\di, \yc+\di) (\xg-\di, \yc+\di) (\xg-\di, \yc-\di) (\xg+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxh]
+		coordinates {(\xh+\di, \yc+\di) (\xh-\di, \yc+\di) (\xh-\di, \yc-\di) (\xh+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxi]
+		coordinates {(\xI+\di, \yc+\di) (\xI-\di, \yc+\di) (\xI-\di, \yc-\di) (\xI+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxj]
+		coordinates {(\xj+\di, \yc+\di) (\xj-\di, \yc+\di) (\xj-\di, \yc-\di) (\xj+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxk]
+		coordinates {(\xk+\di, \yc+\di) (\xk-\di, \yc+\di) (\xk-\di, \yc-\di) (\xk+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxl]
+		coordinates {(\xl+\di, \yc+\di) (\xl-\di, \yc+\di) (\xl-\di, \yc-\di) (\xl+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxm]
+		coordinates {(\xm+\di, \yc+\di) (\xm-\di, \yc+\di) (\xm-\di, \yc-\di) (\xm+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxn]
+		coordinates {(\xn+\di, \yc+\di) (\xn-\di, \yc+\di) (\xn-\di, \yc-\di) (\xn+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxo]
+		coordinates {(\xo+\di, \yc+\di) (\xo-\di, \yc+\di) (\xo-\di, \yc-\di) (\xo+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxp]
+		coordinates {(\xp+\di, \yc+\di) (\xp-\di, \yc+\di) (\xp-\di, \yc-\di) (\xp+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxq]
+		coordinates {(\xq+\di, \yc+\di) (\xq-\di, \yc+\di) (\xq-\di, \yc-\di) (\xq+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxr]
+		coordinates {(\xr+\di, \yc+\di) (\xr-\di, \yc+\di) (\xr-\di, \yc-\di) (\xr+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxs]
+		coordinates {(\xs+\di, \yc+\di) (\xs-\di, \yc+\di) (\xs-\di, \yc-\di) (\xs+\di, \yc-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ycxt]
+		coordinates {(\xt+\di, \yc+\di) (\xt-\di, \yc+\di) (\xt-\di, \yc-\di) (\xt+\di, \yc-\di)};
+		
+		% 4th row starting from above
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxa]
+		coordinates {(\xa+\di, \yd+\di) (\xa-\di, \yd+\di) (\xa-\di, \yd-\di) (\xa+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxb]
+		coordinates {(\xb+\di, \yd+\di) (\xb-\di, \yd+\di) (\xb-\di, \yd-\di) (\xb+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxc]
+		coordinates {(\xc+\di, \yd+\di) (\xc-\di, \yd+\di) (\xc-\di, \yd-\di) (\xc+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxd]
+		coordinates {(\xd+\di, \yd+\di) (\xd-\di, \yd+\di) (\xd-\di, \yd-\di) (\xd+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxe]
+		coordinates {(\xe+\di, \yd+\di) (\xe-\di, \yd+\di) (\xe-\di, \yd-\di) (\xe+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxf]
+		coordinates {(\xf+\di, \yd+\di) (\xf-\di, \yd+\di) (\xf-\di, \yd-\di) (\xf+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxg]
+		coordinates {(\xg+\di, \yd+\di) (\xg-\di, \yd+\di) (\xg-\di, \yd-\di) (\xg+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxh]
+		coordinates {(\xh+\di, \yd+\di) (\xh-\di, \yd+\di) (\xh-\di, \yd-\di) (\xh+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxi]
+		coordinates {(\xI+\di, \yd+\di) (\xI-\di, \yd+\di) (\xI-\di, \yd-\di) (\xI+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxj]
+		coordinates {(\xj+\di, \yd+\di) (\xj-\di, \yd+\di) (\xj-\di, \yd-\di) (\xj+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxk]
+		coordinates {(\xk+\di, \yd+\di) (\xk-\di, \yd+\di) (\xk-\di, \yd-\di) (\xk+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxl]
+		coordinates {(\xl+\di, \yd+\di) (\xl-\di, \yd+\di) (\xl-\di, \yd-\di) (\xl+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxm]
+		coordinates {(\xm+\di, \yd+\di) (\xm-\di, \yd+\di) (\xm-\di, \yd-\di) (\xm+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxn]
+		coordinates {(\xn+\di, \yd+\di) (\xn-\di, \yd+\di) (\xn-\di, \yd-\di) (\xn+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxo]
+		coordinates {(\xo+\di, \yd+\di) (\xo-\di, \yd+\di) (\xo-\di, \yd-\di) (\xo+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxp]
+		coordinates {(\xp+\di, \yd+\di) (\xp-\di, \yd+\di) (\xp-\di, \yd-\di) (\xp+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxq]
+		coordinates {(\xq+\di, \yd+\di) (\xq-\di, \yd+\di) (\xq-\di, \yd-\di) (\xq+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxr]
+		coordinates {(\xr+\di, \yd+\di) (\xr-\di, \yd+\di) (\xr-\di, \yd-\di) (\xr+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxs]
+		coordinates {(\xs+\di, \yd+\di) (\xs-\di, \yd+\di) (\xs-\di, \yd-\di) (\xs+\di, \yd-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\ydxt]
+		coordinates {(\xt+\di, \yd+\di) (\xt-\di, \yd+\di) (\xt-\di, \yd-\di) (\xt+\di, \yd-\di)};
+		
+		% 5th row starting from above
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexa]
+		coordinates {(\xa+\di, \ye+\di) (\xa-\di, \ye+\di) (\xa-\di, \ye-\di) (\xa+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexb]
+		coordinates {(\xb+\di, \ye+\di) (\xb-\di, \ye+\di) (\xb-\di, \ye-\di) (\xb+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexc]
+		coordinates {(\xc+\di, \ye+\di) (\xc-\di, \ye+\di) (\xc-\di, \ye-\di) (\xc+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexd]
+		coordinates {(\xd+\di, \ye+\di) (\xd-\di, \ye+\di) (\xd-\di, \ye-\di) (\xd+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexe]
+		coordinates {(\xe+\di, \ye+\di) (\xe-\di, \ye+\di) (\xe-\di, \ye-\di) (\xe+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexf]
+		coordinates {(\xf+\di, \ye+\di) (\xf-\di, \ye+\di) (\xf-\di, \ye-\di) (\xf+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexg]
+		coordinates {(\xg+\di, \ye+\di) (\xg-\di, \ye+\di) (\xg-\di, \ye-\di) (\xg+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexh]
+		coordinates {(\xh+\di, \ye+\di) (\xh-\di, \ye+\di) (\xh-\di, \ye-\di) (\xh+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexi]
+		coordinates {(\xI+\di, \ye+\di) (\xI-\di, \ye+\di) (\xI-\di, \ye-\di) (\xI+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexj]
+		coordinates {(\xj+\di, \ye+\di) (\xj-\di, \ye+\di) (\xj-\di, \ye-\di) (\xj+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexk]
+		coordinates {(\xk+\di, \ye+\di) (\xk-\di, \ye+\di) (\xk-\di, \ye-\di) (\xk+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexl]
+		coordinates {(\xl+\di, \ye+\di) (\xl-\di, \ye+\di) (\xl-\di, \ye-\di) (\xl+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexm]
+		coordinates {(\xm+\di, \ye+\di) (\xm-\di, \ye+\di) (\xm-\di, \ye-\di) (\xm+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexn]
+		coordinates {(\xn+\di, \ye+\di) (\xn-\di, \ye+\di) (\xn-\di, \ye-\di) (\xn+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexo]
+		coordinates {(\xo+\di, \ye+\di) (\xo-\di, \ye+\di) (\xo-\di, \ye-\di) (\xo+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexp]
+		coordinates {(\xp+\di, \ye+\di) (\xp-\di, \ye+\di) (\xp-\di, \ye-\di) (\xp+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexq]
+		coordinates {(\xq+\di, \ye+\di) (\xq-\di, \ye+\di) (\xq-\di, \ye-\di) (\xq+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexr]
+		coordinates {(\xr+\di, \ye+\di) (\xr-\di, \ye+\di) (\xr-\di, \ye-\di) (\xr+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yexs]
+		coordinates {(\xs+\di, \ye+\di) (\xs-\di, \ye+\di) (\xs-\di, \ye-\di) (\xs+\di, \ye-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yext]
+		coordinates {(\xt+\di, \ye+\di) (\xt-\di, \ye+\di) (\xt-\di, \ye-\di) (\xt+\di, \ye-\di)};
+		
+		% 6th row starting from above
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxa]
+		coordinates {(\xa+\di, \yf+\di) (\xa-\di, \yf+\di) (\xa-\di, \yf-\di) (\xa+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxb]
+		coordinates {(\xb+\di, \yf+\di) (\xb-\di, \yf+\di) (\xb-\di, \yf-\di) (\xb+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxc]
+		coordinates {(\xc+\di, \yf+\di) (\xc-\di, \yf+\di) (\xc-\di, \yf-\di) (\xc+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxd]
+		coordinates {(\xd+\di, \yf+\di) (\xd-\di, \yf+\di) (\xd-\di, \yf-\di) (\xd+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxe]
+		coordinates {(\xe+\di, \yf+\di) (\xe-\di, \yf+\di) (\xe-\di, \yf-\di) (\xe+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxf]
+		coordinates {(\xf+\di, \yf+\di) (\xf-\di, \yf+\di) (\xf-\di, \yf-\di) (\xf+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxg]
+		coordinates {(\xg+\di, \yf+\di) (\xg-\di, \yf+\di) (\xg-\di, \yf-\di) (\xg+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxh]
+		coordinates {(\xh+\di, \yf+\di) (\xh-\di, \yf+\di) (\xh-\di, \yf-\di) (\xh+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxi]
+		coordinates {(\xI+\di, \yf+\di) (\xI-\di, \yf+\di) (\xI-\di, \yf-\di) (\xI+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxj]
+		coordinates {(\xj+\di, \yf+\di) (\xj-\di, \yf+\di) (\xj-\di, \yf-\di) (\xj+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxk]
+		coordinates {(\xk+\di, \yf+\di) (\xk-\di, \yf+\di) (\xk-\di, \yf-\di) (\xk+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxl]
+		coordinates {(\xl+\di, \yf+\di) (\xl-\di, \yf+\di) (\xl-\di, \yf-\di) (\xl+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxm]
+		coordinates {(\xm+\di, \yf+\di) (\xm-\di, \yf+\di) (\xm-\di, \yf-\di) (\xm+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxn]
+		coordinates {(\xn+\di, \yf+\di) (\xn-\di, \yf+\di) (\xn-\di, \yf-\di) (\xn+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxo]
+		coordinates {(\xo+\di, \yf+\di) (\xo-\di, \yf+\di) (\xo-\di, \yf-\di) (\xo+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxp]
+		coordinates {(\xp+\di, \yf+\di) (\xp-\di, \yf+\di) (\xp-\di, \yf-\di) (\xp+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxq]
+		coordinates {(\xq+\di, \yf+\di) (\xq-\di, \yf+\di) (\xq-\di, \yf-\di) (\xq+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxr]
+		coordinates {(\xr+\di, \yf+\di) (\xr-\di, \yf+\di) (\xr-\di, \yf-\di) (\xr+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxs]
+		coordinates {(\xs+\di, \yf+\di) (\xs-\di, \yf+\di) (\xs-\di, \yf-\di) (\xs+\di, \yf-\di)};
+		
+		\addplot[patch, patch type=rectangle, faceted color=black, color=black!\yfxt]
+		coordinates {(\xt+\di, \yf+\di) (\xt-\di, \yf+\di) (\xt-\di, \yf-\di) (\xt+\di, \yf-\di)};
+
+	\end{axis}
+\end{tikzpicture}
+
+
+\end{document}
