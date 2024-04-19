@@ -1,0 +1,81 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\usepackage[english]{babel}
+\usepackage[cmyk]{xcolor}
+\usepackage{pgfplots}
+\usepackage{txfonts}
+\usepackage{pgffor}
+\usetikzlibrary{patterns}
+\usetikzlibrary{spy}
+\pgfplotsset{compat=1.8}
+
+
+\begin{document}
+
+
+\begin{tikzpicture}[spy using outlines={rectangle, magnification=6, connect spies}]
+	\begin{axis}[		%x=.1250cm,
+					xmin=0,
+					xmax=30,
+					xtick={0, 2.5, 5, 7.5, 10, 12.5, 15, 16, 17.5, 20, 22.5, 25, 27.5, 30},
+					xticklabels={0, , 5, , 10, , 15, , , 20, , 25, , 30},
+					ymin=-0.0255,
+					%ymax=-0.005,
+					ymax=-0.0025,
+					ytick={-0.025, -0.020, -0.015, -0.010, -0.005},
+					yticklabels={-0.025, -0.020, -0.015, -0.010, -0.005},
+					height=0.275\textwidth,
+					width=0.6\textwidth,
+					scaled ticks=false,
+					grid=both,
+					clip=true,
+					xticklabel style = {font=\scriptsize},
+					yticklabel style = {font=\scriptsize},
+					xlabel={\scriptsize{Time} [s]},
+					ylabel={\scriptsize{$\hat{\bm{\theta}}^{2}$ \big($l_c$\big) [m] }},
+					ylabel style={at={(axis description cs:-0.14,.5)}},
+					xlabel style={at={(axis description cs: 0.5, -0.25)}},
+					legend style={at={(axis cs:98.5,3.4e2)},
+					anchor=north east,
+					draw=none,
+					legend columns=-1},]
+
+		\addplot[red, line width=.8pt]
+		table[x=time,y=p2]
+		{WA_parameter_history_1.dat};
+
+		\addplot[blue, line width=.5pt] 
+		table[x=time,y=p2]
+		{WA_parameter_history_3.dat};
+		
+		\addplot[green, line width=.5pt] 
+		table[x=time,y=p2]
+		{WA_parameter_history_4.dat};
+		
+		\addplot[orange, line width=.5pt] 
+		table[x=time,y=p2]
+		{WA_parameter_history_5.dat};
+		
+		\addplot[gray, line width=.5pt] 
+		table[x=time,y=p2]
+		{WA_parameter_history_7.dat};
+		
+		\addplot[black, line width=.9pt, densely dashed]
+		coordinates{(0, -0.0155) (30, -0.0155)};
+		
+		\coordinate (spypoint) at (axis cs: 16, -0.0155);
+		\coordinate (magnifyglass) at (axis cs: 23.5, -0.00875);
+		
+		\spy [black, size=0.8cm] on (spypoint)
+		in node[fill=white] at (magnifyglass);
+		
+	\end{axis}
+\end{tikzpicture}
+
+
+\end{document}
