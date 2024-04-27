@@ -4,6 +4,19 @@ Tikz-plots is a repository for the collection of example plots using Tikz, with 
 
 ## Contents
 
+- [bar-plot-top-view](https://github.com/os-kon/tikz-plots/tree/main/bar-plot-top-view)
+- [mode-shape-curvature](https://github.com/os-kon/tikz-plots/tree/main/mode-shape-curvature)
+- [scatter-plot](https://github.com/os-kon/tikz-plots/tree/main/scatter-plot)
+- [strain-mode-shape](https://github.com/os-kon/tikz-plots/tree/main/strain-mode-shape)
+- [time-series-with-spypoint](https://github.com/os-kon/tikz-plots/tree/main/time-series-with-spypoint)
+
+## Getting started
+Pull down a copy by downloading or cloning the repository:
+
+```shell
+git clone git@github.com:os-kon/tikz-plots.git
+```
+
 
 ## Required packages
 
@@ -11,4 +24,13 @@ The examples are based on various LaTeX packages that should be installed. Some 
 
 Here is the list of required packages, as specified on CTAN:
 
-## Contributors
+- [amsmath](https://ctan.org/pkg/amsmath)
+- [babel](https://ctan.org/pkg/babel)
+- [bm](https://ctan.org/pkg/bm)
+- [cmbright](https://ctan.org/pkg/cmbright)
+- [fontenc](https://ctan.org/pkg/fontenc)
+- [mathtools](https://ctan.org/pkg/mathtools)
+- [pgfplots](https://ctan.org/pkg/pgfplots)
+- [textcomp](https://ctan.org/pkg/textcomp)
+- [txfonts](https://ctan.org/pkg/txfonts)
+- [xcolor](https://ctan.org/pkg/xcolor)
