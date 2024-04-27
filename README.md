@@ -4,11 +4,11 @@ Tikz-plots is a repository for the collection of example plots using Tikz, with 
 
 ## Contents
 
-- [bar-plot-top-view](https://github.com/os-kon/tikz-plots/tree/main/bar-plot-top-view)
-- [mode-shape-curvature](https://github.com/os-kon/tikz-plots/tree/main/mode-shape-curvature)
-- [scatter-plot](https://github.com/os-kon/tikz-plots/tree/main/scatter-plot)
-- [strain-mode-shape](https://github.com/os-kon/tikz-plots/tree/main/strain-mode-shape)
-- [time-series-with-spypoint](https://github.com/os-kon/tikz-plots/tree/main/time-series-with-spypoint)
+- [bar-plot-top-view](https://github.com/os-kon/tikz-plots/tree/main/bar-plot-top-view): A top-view plot of 3D bars
+- [mode-shape-curvature](https://github.com/os-kon/tikz-plots/tree/main/mode-shape-curvature): A two-dimensional contour plot
+- [scatter-plot](https://github.com/os-kon/tikz-plots/tree/main/scatter-plot): A two-dimensional scatter plot
+- [strain-mode-shape](https://github.com/os-kon/tikz-plots/tree/main/strain-mode-shape): A three-dimensional contour and surface plot
+- [time-series-with-spypoint](https://github.com/os-kon/tikz-plots/tree/main/time-series-with-spypoint): A time series plot with a spypoint 
 
 ## Getting started
 Pull down a copy by downloading or cloning the repository:
