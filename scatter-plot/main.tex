@@ -5,18 +5,14 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{bm}
-
 \usepackage[english]{babel}
 \usepackage[cmyk]{xcolor}
 \usepackage{pgfplots}
-%\usepackage{timesmt}
 \usepackage{txfonts}
-%\usepackage{ecrc2}
 \usepackage{pgffor}
 \usetikzlibrary{patterns}
 \usetikzlibrary{spy}
 \pgfplotsset{compat=1.8}
-%\pgfrealjobname{Figure_1}
 
 
 \begin{document}
@@ -131,15 +127,8 @@
 		\addplot[yellow, only marks, line width=.9pt, mark=triangle*]
 		coordinates{(0.385, -0.0155)};
 		
-		%\addplot[black, line width=.5pt]
-		%coordinates{(7, -0.075) (7, 0.075)};
-		
-		%\coordinate (spypoint) at (axis cs: 5.5, 0.041);
 		\coordinate (spypoint) at (axis cs: 7, 0.0425);
 		\coordinate (magnifyglass) at (axis cs: 12.5, -0.01);
-		
-		%\spy [black, size=1.0cm] on (spypoint)
-		%in node[fill=white] at (magnifyglass);
 		
 	\end{axis}
 \end{tikzpicture}
